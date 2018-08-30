@@ -53,19 +53,19 @@ def apply_coupons(cart, coupons)
       end 
     end
   end
-  # coup_hash.each do |c, v|
-  #   cart.each do |food, val|
-  #     coupons.each do |ele|
-  #       if c == food && c == ele[:item]
-  #         if cart[food][:count] >= (v*ele[:num])
-  #           cart[food][:count] = cart[food][:count] % (v*ele[:num])
-  #         elsif cart[food][:count] < (v*ele[:num])
-  #           cart[food][:count] = cart[food][:count] % ele[:num]
-  #         end
-  #       end
-  #     end
-  #   end
-  # end
+  coup_hash.each do |c, v|
+    cart.each do |food, val|
+      coupons.each do |ele|
+        if c == food && c == ele[:item]
+          if cart[food][:count] >= (v*ele[:num])
+            cart[food][:count] = cart[food][:count] % (v*ele[:num])
+          elsif cart[food][:count] < (v*ele[:num])
+            cart[food][:count] = cart[food][:count] % ele[:num]
+          end
+        end
+      end
+    end
+  end
   return cart
 end
 
