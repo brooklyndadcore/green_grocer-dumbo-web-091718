@@ -88,6 +88,10 @@ def checkout(cart, coupons)
   step3.each do |ele, k|
     sum +=  k[:price]  
   end
-  sum > 100.00 ? total = (sum * 0.9).round(2) : total = sum
+  if sum > 100 
+    total = (sum * 0.9).round(2) 
+  else
+    total = sum
+  end
   return total 
 end
