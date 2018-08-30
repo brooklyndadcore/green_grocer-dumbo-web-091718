@@ -89,7 +89,7 @@ def checkout(cart, coupons)
     sum +=  k[:price]  
   end
   if sum > 100 
-    total = (sum - 10%)
+    total = (sum*0.9)
   else
     total = sum
   end
