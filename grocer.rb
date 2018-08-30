@@ -81,9 +81,7 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  step1 = consolidate_cart(cart)
-  step2 = apply_coupons(step1, coupons)
-  step3 = apply_clearance(step2)
+  step3 = apply_clearance(apply_coupons(consolidate_cart(cart), coupons))
   sum = 0 
   step3.each do |ele, k|
     sum +=  k[:price]  
