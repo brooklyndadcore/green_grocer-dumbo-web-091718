@@ -81,15 +81,17 @@ def apply_clearance(cart)
 end
 
 def checkout(cart, coupons)
-  step3 = apply_clearance(apply_coupons(consolidate_cart(cart), coupons))
+  step1 = consolidate_cart(cart)
+  step2 = apply_coupons(step1, coupons)
+  step3 = apply_clearance(step2)
   sum = 0 
   step3.each do |ele, k|
-    sum +=  k[:price]  
+    sum +=  (k[:price]*k[:count])
   end
-  if sum < 100 
-    total = sum
+  if sum > 100 
+    total = (sum * 0.9).round(2) 
   else
-    total = sum*0.9
+    total = sum
   end
   return total 
 end
