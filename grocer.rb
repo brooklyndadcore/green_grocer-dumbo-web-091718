@@ -48,11 +48,7 @@ def apply_coupons(cart, coupons)
         money = coups[:cost]
         cart_count = cart[food][:count] 
         coups_total = coups[:num]*sum
-        if cart_count > (sum*coups_total)
-          coups_used = (cart_count/coups_total).floor
-        else
-          coups_used = coups_total
-        end
+        coups_used = (cart_count/coups_total).floor
         cart["#{food} W/COUPON"] = {:price => money, :clearance => clear, :count => coups_used}
       end 
     end
